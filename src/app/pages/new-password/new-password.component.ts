@@ -18,6 +18,8 @@ export class NewPasswordComponent {
 
   objNewPassword = {}
   
+//       phone: string | undefined = '';
+//  otp: string | undefined = '';
 
   constructor( private toastr: ToastrService, private fb: FormBuilder,private _newPassword:NewPassService,private _router:Router){
      const platformId = inject(PLATFORM_ID);
@@ -59,17 +61,16 @@ export class NewPasswordComponent {
   newPass(Newpass:FormGroup):void{
     if(Newpass.valid){
        console.log(this.Newpass.value)
-    const platformId = inject(PLATFORM_ID);
+    // const platformId = inject(PLATFORM_ID);
 
 
-    let phone: string | undefined = '';
-let otp: string | undefined = '';
 
 
-if (isPlatformBrowser(platformId)) {
-  phone = history.state?.phone;
-  otp = history.state?.otp;
-}
+
+// if (isPlatformBrowser(platformId)) {
+//   this.phone = history.state?.phone;
+//  this.otp = history.state?.otp;
+// }
     
    const  objNewpassword : InewPass = {
     phone:history.state?.phone,
