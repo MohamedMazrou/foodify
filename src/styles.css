@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files  */
+@import 'ngx-toastr/toastr';
 @import "animate.css/animate.min.css";
+@import "../src/assets/spinner-animations/ball-scale-multiple.css";
+@import url("../node_modules/@fortawesome/fontawesome-free/css/all.min.css");
  @tailwind base;
 @tailwind components;
 @tailwind utilities;

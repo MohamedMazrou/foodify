@@ -1,40 +1,71 @@
 
 <section  class=" bg-white h-screen w-full lg:absolute flex justify-center mt-5 lg:m-0 items-start lg:items-center right-0 top-0 lg:w-1/2 xl:w-1/4 ">
     
-<form [formGroup]="signUp"  class="flex justify-center w-full p-2 flex-col gap-2 items-center " action="">
+<form [formGroup]="signUp" (ngSubmit)="datasignUp(signUp)"  class="flex justify-center w-full p-2 flex-col gap-2 items-center " action="">
     <h3 class="pacifico-regular font-extrabold text-4xl text-color mb-5">Foodify</h3>
 
        <p class="text-2xl font-bold pacifico-regular"> Sign Up</p>
      <p class=" font-bold pacifico-regular">Create an account</p>
          
-
+ <div class="w-11/12 md:w-3/4">
 
        <input  
       type="text"  formControlName="full_name"
-      class="block p-2 w-11/12 md:w-3/4 text-sm outline-none rounded-1 border border-gray-300  "
+      class="block p-2 w-full text-sm outline-none rounded-1 border border-gray-300  "
       placeholder="Enter your Full Name">
+     <p *ngIf="signUp.get('full_name')?.errors?.['minlength'] && signUp.get('full_name')?.invalid  " class="text-red-500 text-sm">{{'Name must be at least 3 characters'}}</p>
+    <p *ngIf=" !signUp.get('full_name')?.errors?.['minlength'] && signUp.get('full_name')?.errors?.['required'] && signUp.get('full_name')?.touched " class="text-red-500 text-sm">{{'Name required'}}</p>
+
+    <p *ngIf="!signUp.get('full_name')?.errors?.['minlength'] && signUp.get('name')?.errors?.['pattern'] && signUp.get('full_name')?.dirty " class="text-red-500 text-sm">{{' Name must contain letters only'}}</p>
 
 
-       <input  
-      type="text"  formControlName="phone_number"
-      class="block p-2 w-11/12 md:w-3/4 text-sm outline-none rounded-1 border border-gray-300  "
+ </div>
+
+  
+<div class="w-11/12 md:w-3/4">
+   <input  
+      type="text"  formControlName="phone"
+      class="block p-2 w-full text-sm outline-none rounded-1 border border-gray-300  "
       placeholder="Enter your Phone Number">
+     <p *ngIf="signUp.get('phone')?.invalid && signUp.get('phone')?.touched" class="text-red-500 text-sm">Please enter a valid phonenumber</p>
 
+</div>
+      
 
-       <input  
+ <div class="w-11/12 md:w-3/4">
+          <input  
       type="password"  formControlName="password"
-      class="block p-2 w-11/12 md:w-3/4 text-sm outline-none rounded-1 border border-gray-300  "
+      class="block p-2 w-full text-sm outline-none rounded-1 border border-gray-300  "
       placeholder="Enter your Password">
+        <p *ngIf="signUp.get('password')?.invalid && signUp.get('password')?.touched" class="text-red-500 text-sm">Password must be at least 8 characters</p>
 
+</div>
+     
+  <div  class="w-11/12 md:w-3/4">
        <input  
-      type="password"  formControlName="confirmPassword"
-      class="block p-2 w-11/12 md:w-3/4 text-sm outline-none rounded-1 border border-gray-300  "
+      type="password"  formControlName="password_confirmation"
+      class="block p-2 w-full text-sm outline-none rounded-1 border border-gray-300  "
       placeholder="Enter your Password">
+   
+     @if(signUp.get('password_confirmation')?.dirty || signUp.get('password_confirmation')?.errors){
 
+            @if(signUp.errors?.['ConfirmPassNotMatch']){
+            <span class="text-red-500 text-sm">Password do not match</span>
+            }
+            @else if (signUp.get('ConfirmPassNotMatch')?.errors?.['required']) {
+            <span class="text-red-500 text-sm">Confirm Password required</span>
+            }
+            @if(signUp.valid){
+            <span  class=" text-color text-sm">Password do match</span>
+            }
+
+    }
+
+</div>
 
 <div class="w-11/12 md:w-3/4 flex flex-col gap-1.5">
     <!-- <a class="pacifico-regular font-semibold text-color  w-100 no-underline  " href="">Forget your password?</a> -->
-    <input  [routerLink]="['/otp']"
+    <input 
       type="submit" id="name" value="Continue"
       class="block w-full mainColor text-white p-2  cursor-pointer text-sm outline-none rounded-1 border border-gray-300  "
     >
