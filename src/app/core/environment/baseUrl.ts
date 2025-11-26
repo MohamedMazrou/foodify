@@ -1,5 +1,5 @@
 export const url = {
-    baseUrl :'http://foody.huma-volve.com',
+    baseUrl :'https://foody.huma-volve.com',
     endPoint_Signup:'/api/register',
     endPoint_Otp:'/api/verify-otp',
     endPoint_Resend_Otp:'/api/resend-verify-otp',
