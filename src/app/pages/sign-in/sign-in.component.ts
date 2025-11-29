@@ -33,7 +33,6 @@ obj_sign_in = this.fb.group({
  datasignIn(form:FormGroup):void{
  
      if(form.valid){
-      console.log(form.value)
       this._signIn.signIn(form.value).subscribe(({
       next:((res:any)=>{
        this.toastr.success(res.message);

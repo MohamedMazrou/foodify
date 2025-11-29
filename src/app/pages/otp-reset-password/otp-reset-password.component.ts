@@ -64,7 +64,6 @@ constructor(private fb: FormBuilder,private toastr: ToastrService,private _route
            phone:this.phone || '',
            otp: otpNewPass || '' ,
          }
-         console.log(obj_Otp)
       this._router.navigate(['/newresetpassword'],{ state: obj_Otp})
 
      }

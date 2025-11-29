@@ -3,6 +3,11 @@
 @import "animate.css/animate.min.css";
 @import "../src/assets/spinner-animations/ball-scale-multiple.css";
 @import url("../node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+/* @plugin "flyonui";
+@import "flyonui/variants.css";
+@source "../node_modules/flyonui/flyonui.js"; */
+/* @import "flyonui/dist/flyonui.css"; */
+
  @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,4 +39,9 @@
 
 .secondlyFont{
     font-family: var(--secondlyFont);
+}
+
+body{
+    padding-top: 80px;
+    /* background-color: var(--mainColor); */
 }

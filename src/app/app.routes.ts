@@ -17,7 +17,7 @@ export const routes: Routes = [
             {path:'newresetpassword',loadComponent:()=> import('./pages/new-password/new-password.component').then((c)=>c.NewPasswordComponent),pathMatch:'full'},
         ]
     },
-
+// 
     {
         path:'user',loadComponent:()=> import('../app/layout/user/user/user.component').then((c)=> c.UserComponent),canActivate:[authGuard],
         children:[

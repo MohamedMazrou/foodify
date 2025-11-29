@@ -1,1 +1,88 @@
-<h1>home</h1>
+<section class=" pt-12  mainColor pb-12">
+
+ <div class="flex justify-center ">
+      <swiper-container class="relative  overflow-hidden  h-44 md:h-96 flex justify-center items-center   w-full xl:w-2/3  rounded-2xl  "autoplay-delay="3000" speed="1000"  loop="true"    direction="vertical">
+   
+         <swiper-slide lazy="true">
+<img class=" w-full h-full  bject-cover "  loading="lazy" src="../../../assets/Images_home/image-1.jpg" alt="">
+    </swiper-slide>
+         <swiper-slide lazy="true">
+<img class=" w-full h-full  bject-cover  "  loading="lazy" src="../../../assets/Images_home/image-2.jpg" alt="">
+    </swiper-slide>
+         <swiper-slide lazy="true">
+<img class=" w-full  h-full object-cover "  loading="lazy" src="../../../assets/Images_home/image-3.jpg" alt="">
+    </swiper-slide>
+         <swiper-slide lazy="true">
+<img class=" w-full  h-full object-cover "  loading="lazy" src="../../../assets/Images_home/image-4.jpg" alt="">
+    </swiper-slide>
+
+      
+
+</swiper-container>  
+
+
+</div>
+
+</section>
+
+
+
+<!-- Chef’s Recommendations -->
+
+<section class="relative  flex flex-col justify-center items-center gap-4">
+    <h3 class="pacifico-regular text-yellow-400 animate__animated animate__bounceInRight text-3xl md:text-5xl xl:text-6xl 2xl:text-8xl font-extrabold text-center ">Chef’s <br> Recommendations</h3>
+    <div class="absolute hidden md:block -bottom-6 md:-bottom-3 left-6 md:left-20 lg:left-40 xl:left-80 2xl:left-96  ">
+  <img
+    class="w-10 md:w-14 lg:w-24 animate__animated animate__bounceInLeft"
+    src="../../../assets/Images_home/share.png"
+    alt=""
+  />
+</div>
+
+    <!-- <img class="absolute bottom-6 md:-bottom-3 animate__animated animate__bounceInLeft left-6 md:left-20 lg:left-40 xl:left-80 2xl:left-96 w-10 md:w-14 lg:w-24" src="../../../assets/Images_home/share.png" alt=""> -->
+    <!-- <img class="absolute bottom-6 md:-bottom-3 animate__animated animate__bounceInRight transform -rotate-180 right-6 md:right-20 lg:right-40 xl:right-80 2xl:right-96 w-10 md:w-14 lg:w-24" src="../../../assets/Images_home/share.png" alt=""> -->
+<div class="absolute bottom-6 md:-bottom-3 right-6 md:right-20 lg:right-40 xl:right-80 2xl:right-96 -rotate-180">
+  <img class="w-10 md:w-14 lg:w-24 animate__animated animate__bounceInRight" src="../../../assets/Images_home/share.png" alt="">
+</div>
+
+
+
+</section>
+
+
+
+<!-- product -->
+ <section class="grid  md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 pb-12 justify-center items-center p-4 gap-20 pt-36">
+
+@for (reco of arrRecommended(); track reco.id) {
+<div class="p-2 flex gap-1  justify-center shadow-md w-fit">
+<!--titel and dic and price and stars-->
+ <div class="flex flex-col w-1/2 gap-1 md:p-2">
+<h3 class="pacifico-regular font-bold">{{reco.name}}</h3>
+<p class="pacifico-regular">{{reco.description}}</p>
+<p  class="pacifico-regular font-bold">{{reco.price}}</p>
+<div class="flex justify-start  items-center gap-1">
+  <img *ngFor="let stars of [].constructor(reco?.rating || 0)"  src="../../../assets/Images_home/card/Vector (1).png" alt="">
+
+</div>
+ </div>
+
+<!-- image pro and button add  -->
+ <div class="flex flex-col justify-center items-center gap-2">
+   <img class=" h-32 w-32 transition hover:rotate-180 duration-500 lg:h-40 lg:w-40 -mt-20 rounded-full cursor-pointer border border-slate-500 " [src]="reco.image" alt="">
+   <!-- kcal -->
+   <div class="flex w-full justify-evenly gap-1">
+    <img class="h-5" src="../../../assets/Images_home/card/fire.png" alt="">
+    <p class="pacifico-regular font-bold">{{'Kcal ' +reco.kcal+' '+reco.protein}}</p>
+  </div>
+  <!-- button add and fav -->
+    <div class="flex justify-evenly  w-full gap-1">
+       <button><img src="../../../assets/Images_home/card/fav.png" alt=""></button>
+   <button class="mainColor text-white pacifico-regular font-bold px-6 py-2 rounded-xl ">add</button>
+   
+  </div>
+ </div>
+
+</div>
+  }
+ </section>

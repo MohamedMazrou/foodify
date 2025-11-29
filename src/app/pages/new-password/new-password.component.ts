@@ -60,7 +60,6 @@ export class NewPasswordComponent {
 
   newPass(Newpass:FormGroup):void{
     if(Newpass.valid){
-       console.log(this.Newpass.value)
     // const platformId = inject(PLATFORM_ID);
 
 

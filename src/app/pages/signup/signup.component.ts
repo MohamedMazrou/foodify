@@ -63,14 +63,12 @@ export class SignupComponent {
   if(dataSignUp.valid){
     this._SignUp.signUp(dataSignUp.value).subscribe({
       next:((res:any)=>{
-        console.log(res)
          this.toastr.success(res.message);
          this._router.navigate(['/otp'],{ state: { phone: dataSignUp.value.phone }})
         
       }),
 
       error:((res:any)=>{
-        console.log(res)
         this.toastr.error(res.error.message)
 
       })

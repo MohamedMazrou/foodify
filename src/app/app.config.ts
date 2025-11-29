@@ -16,6 +16,8 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
 import { bootstrapApplication } from '@angular/platform-browser';
 
+
+
 // ضيف أي icons انت محتاجها
 
 
