@@ -51,3 +51,26 @@ export interface Irecommended {
   image: string;
   category: string;
 }
+
+
+
+export interface ICartResponse {
+  data: ICartItem[];
+  summary: ICartSummary;
+}
+
+
+export interface ICartItem {
+  id: number;
+  name: string;
+  price: string;     
+  kcal: number;
+  image: string;
+  quantity: number;
+  subtotal: number;
+}
+
+export interface ICartSummary {
+  total_items: number;
+  total_price: number;
+}
