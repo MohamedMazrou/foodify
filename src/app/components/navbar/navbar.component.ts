@@ -82,7 +82,7 @@ this.showScroll()
 
 
 showScroll():void{
-     if(this.switchCarts){
+   if(this.switchCarts){
     window.document.body.style.overflow = 'hidden'
     }else{ window.document.body.style.overflow = 'auto'}
 }
