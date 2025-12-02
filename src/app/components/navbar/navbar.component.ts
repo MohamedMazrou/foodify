@@ -42,6 +42,8 @@ swithOnSearch():void{
 
   this.searchValue = ''
     this.switchCarts = false
+    this.showScroll()
+
 
 
 }
@@ -52,6 +54,8 @@ swithOnNotification():void{
   this.switchNavbar = false
       this.switchCarts = false
   this.searchValue = ''
+  this.showScroll()
+
 }
 switchOnNavbar():void{
   this.switchNavbar = !this.switchNavbar
@@ -60,6 +64,7 @@ switchOnNavbar():void{
     this.searchValue = ''
     this.switchCarts = false
 
+this.showScroll()
 
 }
 
@@ -70,14 +75,17 @@ switchOnCart():void{
   this.switchNotification = false
 
     this.searchValue = ''
-    if(this.switchCarts){
-    window.document.body.style.overflow = 'hidden'
-    }else{ window.document.body.style.overflow = 'auto'}
-
+ 
+this.showScroll()
 
 }
 
 
+showScroll():void{
+     if(this.switchCarts){
+    window.document.body.style.overflow = 'hidden'
+    }else{ window.document.body.style.overflow = 'auto'}
+}
 arrRecommend !: Irecommended[] 
 getRecommended():void{
   this._GetRecommendedService.getRecommended().subscribe({
@@ -93,7 +101,7 @@ getRecommended():void{
 getCart():void{
 this._Cartservices.getCart().subscribe({
   next:(res:ICartResponse)=>{
-  this._Cartservices.setDataCart(res.data)
+  this._Cartservices.setDataCart(res.data,res.summary)
   this.total_items = res.summary.total_items
   this.total_price = res.summary.total_price
   

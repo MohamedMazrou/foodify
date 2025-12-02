@@ -60,7 +60,7 @@
  <div class="flex flex-col w-1/2 gap-1 md:p-2">
 <h3 class="pacifico-regular font-bold">{{reco.name}}</h3>
 <p class="pacifico-regular">{{reco.description}}</p>
-<p  class="pacifico-regular font-bold">{{reco.price}}</p>
+<p  class="pacifico-regular font-bold">{{reco.price | number:'1.0-0'}} EGP</p>
 <div class="flex justify-start  items-center gap-1">
   <img *ngFor="let stars of [].constructor(reco?.rating || 0)"  src="../../../assets/Images_home/card/Vector (1).png" alt="">
 

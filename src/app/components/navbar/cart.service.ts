@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICartItem, ICartResponse, Irecommended } from '../../core/interfaces/Interfaces';
+import { ICartItem, ICartResponse, ICartSummary, Irecommended } from '../../core/interfaces/Interfaces';
 import { url } from '../../core/environment/baseUrl';
 
 @Injectable({
@@ -11,9 +11,17 @@ export class CartService {
 
   constructor(private http : HttpClient) { }
 Statuscart = signal <ICartItem[]>([])
+summary = signal<ICartSummary>({
+  total_items: 0,
+  total_price: 0
+});
 
-setDataCart(list:ICartItem[]):void{
+setDataCart(list:ICartItem[],summary:ICartSummary):void{
 this.Statuscart.set(list)
+this.summary.set({
+  total_items: summary.total_items,
+  total_price: summary.total_price
+});
 }
 
   getCart():Observable<ICartResponse>{

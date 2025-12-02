@@ -145,7 +145,7 @@
                             <p class="ml-4">{{itemCart.subtotal}}</p>
                           </div>
                           <p class="mt-1 text-sm text-gray-500">calories:  {{itemCart.kcal}}  Kcal</p>
-                          <p class="mt-1 text-sm text-gray-500">price: {{itemCart.price}} EGP</p>
+                          <p class="mt-1 text-sm text-gray-500">price: {{itemCart.price | number:'1.0-0'}} EGP</p>
                         </div>
                         <div class="flex flex-1 items-end justify-between text-sm">
                           <p class="text-gray-500">Qty: {{itemCart.quantity}}</p>
@@ -193,12 +193,12 @@
              
               <div class="flex justify-between text-base font-medium text-gray-900">
                 <p>items</p>
-                <p>{{total_items}}</p>
+                <p>{{_Cartservices.summary().total_items}}</p>
               </div>
 
                <div class="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal</p>
-                <p>{{total_price | number:'1.0-0'}} EGP</p>
+                <p>{{_Cartservices.summary().total_price| number:'1.0-0'}} EGP</p>
               </div>
              
               <div class="mt-6">

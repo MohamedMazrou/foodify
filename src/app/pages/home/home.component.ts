@@ -45,7 +45,7 @@ addTocart(Item:Irecommended):void{
       next:((res:any)=> {
         this._Cartservices.getCart().subscribe({
           next:((res:ICartResponse)=>{
-          this._Cartservices.setDataCart(res.data)
+          this._Cartservices.setDataCart(res.data,res.summary)
           })
         })
         
