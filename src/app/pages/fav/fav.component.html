@@ -1,0 +1,55 @@
+<section class="relative pt-44 flex flex-col justify-center items-center gap-4">
+    <h3 class="pacifico-regular text-yellow-400 animate__animated animate__bounceInRight text-5xl lg:text-8xl  font-extrabold text-center ">Favorites</h3>
+    <div class="absolute hidden md:block -bottom-6 md:-bottom-3 left-6 md:left-20 lg:left-40 xl:left-80 2xl:left-96  ">
+  <img
+    class="w-10 md:w-14 lg:w-24 animate__animated animate__bounceInLeft"
+    src="../../../assets/Images_home/share.png"
+    alt=""
+  />
+</div>
+
+    <!-- <img class="absolute bottom-6 md:-bottom-3 animate__animated animate__bounceInLeft left-6 md:left-20 lg:left-40 xl:left-80 2xl:left-96 w-10 md:w-14 lg:w-24" src="../../../assets/Images_home/share.png" alt=""> -->
+    <!-- <img class="absolute bottom-6 md:-bottom-3 animate__animated animate__bounceInRight transform -rotate-180 right-6 md:right-20 lg:right-40 xl:right-80 2xl:right-96 w-10 md:w-14 lg:w-24" src="../../../assets/Images_home/share.png" alt=""> -->
+<div class="absolute bottom-9 md:-bottom-3 rotate-45 left-6 md:right-20 lg:right-40 xl:right-80 2xl:right-96 md:-rotate-180">
+  <img class="w-10 md:w-14 lg:w-24 animate__animated animate__bounceInRight" src="../../../assets/Images_home/share.png" alt="">
+</div>
+
+
+
+</section>
+ 
+ 
+ <section class="grid  md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4   justify-start items-start p-4 gap-24 md:gap-20 pt-36">
+    @for (fav of _favSrevices.arrFav(); track fav.id) {
+
+<div class="p-2 flex gap-1  justify-center shadow-md w-fit">
+<!--titel and dic and price and stars-->
+ <div class="flex flex-col w-1/2 gap-1 md:p-2">
+<h3 class="pacifico-regular font-bold">{{fav.name}}</h3>
+<p class="pacifico-regular">{{fav.description}}</p>
+<p  class="pacifico-regular font-bold">{{fav.price | number:'1.0-0'}} EGP</p>
+<div class="flex justify-start  items-center gap-1">
+  <img *ngFor="let stars of [].constructor(fav?.rating || 0)"  src="../../../assets/Images_home/card/Vector (1).png" alt="">
+
+</div>
+ </div>
+
+<!-- image pro and button add  -->
+ <div class="flex flex-col justify-center items-center gap-2">
+   <img class=" h-32 w-32 transition hover:rotate-180 duration-500 lg:h-40 lg:w-40 -mt-20 rounded-full cursor-pointer border border-slate-500 " [src]="fav.image" alt="">
+   <!-- kcal -->
+   <div class="flex w-full justify-evenly gap-1">
+    <img class="h-5" src="../../../assets/Images_home/card/fire.png" alt="">
+    <p class="pacifico-regular font-bold">{{'Kcal ' +fav.kcal+' '+fav.protein}}</p>
+  </div>
+  <!-- button add and fav -->
+    <div class="flex justify-evenly  w-full gap-1">
+       <button (click)="addFav(fav)"><i [ngStyle]="{'color': fav.switchOnFav ? '#065E21' : '#b3b8c2'}"  class="fa-solid fa-heart fa-lg"></i></button>
+   <button (click)="addTocart(fav)" class="mainColor text-white pacifico-regular font-bold px-6 py-2 rounded-xl ">add</button>
+   
+  </div>
+ </div>
+
+</div>
+ }
+</section>

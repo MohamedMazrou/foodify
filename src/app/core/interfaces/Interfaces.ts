@@ -50,6 +50,7 @@ export interface Irecommended {
   rating: number;
   image: string;
   category: string;
+  switchOnFav?:boolean
 }
 
 
@@ -68,9 +69,35 @@ export interface ICartItem {
   image: string;
   quantity: number;
   subtotal: number;
+
 }
 
 export interface ICartSummary {
   total_items: number;
   total_price: number;
+}
+
+
+export interface IResponseFavFood {
+  data: IFavFoodItem[];
+  meta: IMeta;
+}
+
+
+export interface IFavFoodItem {
+  id: number;
+  name: string;
+  description: string;
+  price: string;
+  kcal: number;
+  protein: string;
+  reviews: number;
+  rating: number;
+  image: string;
+  category: string;
+    switchOnFav?:boolean
+}
+
+export interface IMeta {
+  total: number;
 }

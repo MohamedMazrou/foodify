@@ -84,10 +84,10 @@
 
 <!-- divNavbar -->
  <div [ngClass]="{'translate-y-24':switchNavbar,'-translate-y-full':switchNavbar == false}"  class=" cursor-pointer w-full bg-white border  fixed left-0 2xl:left-40 p-3 top-0 flex flex-col gap-2 duration-500 transition md:w-1/2 2xl:w-1/4 rounded-2xl shadow-md z-40 ">
-<a class="p-3 w-full text-center transition duration-500 hover:bg-zinc-200 rounded-xl font-semibold">Profile</a>
-<a class="p-3 w-full text-center transition duration-500 hover:bg-zinc-200 rounded-xl font-semibold">Home</a>
-<a class="p-3 w-full text-center transition duration-500 hover:bg-zinc-200 rounded-xl font-semibold">Categories</a>
-<a class="p-3 w-full text-center transition duration-500 hover:bg-zinc-200 rounded-xl font-semibold">favorite</a>
+<a (click)="switchOnNavbar()" class="p-3 w-full text-center transition duration-500 hover:bg-zinc-200 rounded-xl font-semibold">Profile</a>
+<a (click)="switchOnNavbar()" [routerLink]="['home']" class="p-3 w-full text-center transition duration-500 hover:bg-zinc-200 rounded-xl font-semibold">Home</a>
+<a (click)="switchOnNavbar()" class="p-3 w-full text-center transition duration-500 hover:bg-zinc-200 rounded-xl font-semibold">Categories</a>
+<a (click)="switchOnNavbar()" [routerLink]="['favourite']" class="p-3 w-full text-center transition duration-500 hover:bg-zinc-200 rounded-xl font-semibold">favorite</a>
 
  </div>
 
@@ -188,7 +188,7 @@
                   </ul>
                </div>
 
-<!-- checkout -->
+            <!-- checkout -->
                <div class="border-t  absolute bottom-44 bg-white w-full border-gray-200 pr-4 py-6 ">
              
               <div class="flex justify-between text-base font-medium text-gray-900">

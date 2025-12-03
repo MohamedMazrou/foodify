@@ -7,6 +7,9 @@ export const url = {
     endPoint_Forget:'/api/forgot-password',
     endPoint_newPass:'/api/reset-password',
     endPoint_recommended:'/api/recommended',
-    endPoint_Cart:'/api/cart'
+    endPoint_Cart:'/api/cart',
+    endPoint_Fav:'/api/favorites',
+    endPoint_PostFav:'/api/favorite/',
+
 
 } 
