@@ -10,6 +10,7 @@ export const url = {
     endPoint_Cart:'/api/cart',
     endPoint_Fav:'/api/favorites',
     endPoint_PostFav:'/api/favorite/',
+    endPoint_categories:'/api/categories?search=',
 
 
 } 

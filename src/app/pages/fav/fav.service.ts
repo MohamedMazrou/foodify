@@ -20,7 +20,7 @@ export class FavService {
     return this.http.get<IResponseFavFood>(url.endPoint_Fav)
   }
 
-  addFav(obj:Irecommended ):Observable<IResponseFavFood>{
+  addFav(obj:any ):Observable<IResponseFavFood>{
     return this.http.post<IResponseFavFood>(`${url.endPoint_PostFav}${obj.id}`,({}))
   }
 

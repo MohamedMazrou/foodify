@@ -101,3 +101,16 @@ export interface IFavFoodItem {
 export interface IMeta {
   total: number;
 }
+
+
+export interface IFoodCategoryResponse {
+  data: IFoodCategory[];
+}
+
+
+export interface IFoodCategory {
+  id: number;
+  name: string;
+  image: string;
+  dishes_count: number;
+}
