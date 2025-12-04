@@ -216,7 +216,7 @@
 
 
 <!-- profile -->
-<div [ngClass]="{'translate-x-0':switchProfile,'-translate-x-full':switchProfile == false}" class="h-screen p-3  left-0 transform transition duration-500 bg-white  w-full md:w-1/2 xl:w-1/3 2xl:w-1/5  shadow-md top-20 z-30 fixed">
+<div [ngClass]="{'translate-x-0':switchProfile,'-translate-x-full':switchProfile == false}" class="h-screen p-3  left-0 transform transition duration-500 bg-white   w-full md:w-1/2 xl:w-1/3 2xl:w-1/5  shadow-md top-20 z-30 fixed">
 
   <div class="flex items-start justify-between">
                 <h2 id="drawer-title" class="text-lg font-medium pacifico-regular ">Profile</h2>
@@ -230,7 +230,7 @@
                 </div>
               </div>
 
-<div class="relative bg-neutral-primary-soft max-w-xs w-full p-2   rounded-base shadow-xs">
+<div class="relative bg-neutral-primary-soft  w-full p-2  flex flex-col justify-center items-center  rounded-base shadow-xs">
         <button id="dropdownButton" data-dropdown-toggle="dropdown" class="absolute top-2 end-2 text-body hover:text-heading bg-neutral-primary-soft box-border border border-transparent hover:bg-neutral-tertiary focus:ring-4 focus:ring-neutral-tertiary rounded-base p-1.5 focus:outline-none" type="button">
             <span class="sr-only">Open dropdown</span>
             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="3" d="M6 12h.01m6 0h.01m5.99 0h.01"/></svg>
@@ -249,7 +249,7 @@
                 </li>
             </ul>
         </div>
-    <div class="flex flex-col items-center">
+    <div class="flex justify-center w-full flex-col items-center">
 
 
 <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
@@ -259,7 +259,7 @@
 
         <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">{{profile().full_name}}</h5>
         <span class=" text-body"><span class="font-semibold">Phone: </span>{{profile().phone}}</span>
-        <!-- <span class=" text-body"><span class="font-semibold">Email: </span>{{profile().email}}</span> -->
+        <span class=" text-body"><span class="font-semibold">Email: </span>{{profile().email}}</span>
         <span class=" text-body"><span class="font-semibold">Creat-At: </span>{{profile().created_at | date:'dd/MM/yyyy - hh:mm a'}}</span>
         <span class=" text-body"><span class="font-semibold">Update-At: </span>{{profile().updated_at | date:'dd/MM/yyyy - hh:mm a'}}</span>
         <div class="flex mt-4 md:mt-6 gap-4">
