@@ -1,5 +1,6 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { resolve } from 'node:path';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, PLATFORM_ID, signal } from '@angular/core';
+import { Router, RouterLink } from "@angular/router";
 import { SharedModuleModule } from '../../shared/shared-module.module';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { ICartItem, ICartResponse, Irecommended, profile } from '../../core/interfaces/Interfaces';
@@ -8,6 +9,8 @@ import { SearchByRecommendPipe } from '../../core/pipe/search-by-recommend.pipe'
 import { CartService } from './cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { ProfileService } from './profile.service';
+import { CookieService } from 'ngx-cookie-service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +21,7 @@ import { ProfileService } from './profile.service';
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class NavbarComponent {
-  constructor( private fb: FormBuilder,private _GetRecommendedService:GetRecommendedService,public _Cartservices:CartService,private toastr: ToastrService,private _ProfileService:ProfileService){}
+  constructor( private cookie :CookieService,private router:Router,private fb: FormBuilder,private _GetRecommendedService:GetRecommendedService,public _Cartservices:CartService,private toastr: ToastrService,private _ProfileService:ProfileService){}
 switchOffsearch :boolean = false
 switchNotification :boolean = false
 switchNavbar :boolean = false
@@ -27,6 +30,8 @@ switchProfile :boolean = false
 searchValue:string = ''
 total_items!:number
 total_price!:number
+ platformId = inject(PLATFORM_ID);
+
 profile = signal<profile>({
     id: 0,
   name: '',
@@ -320,6 +325,14 @@ birthday: [
 
 }
 
+logout():void{
+  if (isPlatformBrowser(this.platformId)) {
+  if(this.cookie.check('accessToken')){
+  this.cookie.delete('accessToken','/')
+this.router.navigate(['/signin'])
+}
+  }
+}
 
 
 }
