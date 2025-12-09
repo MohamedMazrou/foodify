@@ -26,7 +26,8 @@ export class AddCardComponent {
     private toastr: ToastrService,
     private _PaymentMethodService: PaymentMethodService,
     private fb: FormBuilder,
-    private router:Router
+    private router:Router,
+    private _Cartservices: CartService
   ) {
 
   }
@@ -51,7 +52,7 @@ export class AddCardComponent {
 
         this._PaymentMethodService.PaymentMethod(this.paymentDataUser.value).subscribe({
           next:((res:any)=>{
-            this.toastr.success(res.message);
+            this.toastr.success(`Payment of ${Math.round(this._Cartservices.summary().total_price)} EGP was completed successfully`);
             this.router.navigate(['/user/Payment'])
           
           }),

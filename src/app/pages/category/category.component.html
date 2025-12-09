@@ -32,10 +32,10 @@
     </div>
 
 
-<section class="grid  md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4   justify-center items-center p-4 gap-24 md:gap-20 pt-36">
+<section class="grid  md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 h-screen 2xl:h-[50vh]  justify-center items-center p-4 pt-12 gap-24 md:gap-20 ">
 
     @for (Dishe of ArrDishes(); track $index) {
-        <div class="p-2 flex gap-1  justify-center shadow-md w-fit">
+        <div class="p-2 flex gap-1  justify-center shadow-md w-full">
 <!--titel and dic and price and stars-->
  <div class="flex flex-col w-1/2 gap-1 md:p-2">
 <h3 (click)="_ShowDetailsDishesService.getDishes(Dishe.id)" [routerLink]="['/user/dishes/',Dishe.id]" class="pacifico-regular cursor-pointer font-bold">{{Dishe.name}}</h3>

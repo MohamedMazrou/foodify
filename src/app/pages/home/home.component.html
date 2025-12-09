@@ -3,9 +3,9 @@
  <div class="flex justify-center ">
       <swiper-container class="relative  overflow-hidden  h-44 md:h-96 flex justify-center items-center   w-full xl:w-2/3  rounded-2xl  "autoplay-delay="3000" speed="1000"  loop="true"    direction="vertical">
    
-         <swiper-slide lazy="true">
+         <!-- <swiper-slide lazy="true">
 <img class=" w-full h-full  bject-cover "  loading="lazy" src="../../../assets/Images_home/image-1.jpg" alt="">
-    </swiper-slide>
+    </swiper-slide> -->
          <!-- <swiper-slide lazy="true">
 <img class=" w-full h-full  bject-cover  "  loading="lazy" src="../../../assets/Images_home/image-2.jpg" alt="">
     </swiper-slide> -->
@@ -29,7 +29,7 @@
 
 <!-- Chef’s Recommendations -->
 
-<section class="relative  flex flex-col justify-center items-center gap-4">
+<section class="relative pt-3  flex flex-col justify-center items-center gap-4">
     <h3 class="pacifico-regular text-yellow-400 animate__animated animate__bounceInRight text-3xl md:text-5xl xl:text-6xl 2xl:text-8xl font-extrabold text-center ">Chef’s <br> Recommendations</h3>
     <div class="absolute hidden md:block -bottom-6 md:-bottom-3 left-6 md:left-20 lg:left-40 xl:left-80 2xl:left-96  ">
   <img
@@ -55,7 +55,7 @@
  <section class="grid  md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 pb-12 justify-center items-center p-4 gap-24 md:gap-20 pt-36">
 
 @for (reco of arrRecommended(); track reco.id) {
-<div class="p-2 flex gap-1  justify-center shadow-md w-fit">
+<div class="p-2 flex gap-1  justify-center shadow-md w-full">
 <!--titel and dic and price and stars-->
  <div class="flex flex-col w-1/2 gap-1 md:p-2">
 <h3 (click)="_ShowDetailsDishesService.getDishes(reco.id)"  [routerLink]="['/user/dishes/',reco.id]" class="pacifico-regular cursor-pointer font-bold">{{reco.name}}</h3>
@@ -85,4 +85,4 @@
 
 </div>
   }
- </section>
+ </section> 

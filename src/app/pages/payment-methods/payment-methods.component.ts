@@ -7,11 +7,12 @@ import { CartService } from '../../components/navbar/cart.service';
 import { IPaymentData, IPaymentResponse } from '../../core/interfaces/Interfaces';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from "@angular/router";
+import { HiddenNumberPipe } from '../../core/pipe/hidden-number.pipe';
 
 @Component({
   selector: 'app-payment-methods',
   standalone: true,
-  imports: [SharedModuleModule, FormsModule, CommonModule, RouterLink],
+  imports: [SharedModuleModule, FormsModule, CommonModule, RouterLink,HiddenNumberPipe],
   templateUrl: './payment-methods.component.html',
   styleUrl: './payment-methods.component.css'
 })

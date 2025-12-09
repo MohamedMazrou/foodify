@@ -129,7 +129,7 @@
                <div class="mt-8">
                   <ul role="list" class="-my-6 h-96 overflow-y-auto divide-y divide-gray-200">
                     @for (itemCart of _Cartservices.Statuscart() ; track $index) {
-                    <li class="flex py-6">
+                    <li *ngIf="_Cartservices.Statuscart().length > 0" class="flex py-6">
                       <div class="size-24 shrink-0 overflow-hidden rounded-full border border-gray-200">
                         <img [src]="itemCart.image" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="size-full object-cover">
                       </div>
@@ -182,7 +182,11 @@
                         </div>
                       </div>
                     </li>
+
                   }
+                  <li *ngIf="_Cartservices.Statuscart().length == 0" class="flex flex-col gap-1 py-6 justify-center items-center w-full">
+                       <img src="../../../assets/empty-Image/emptyCart.png" alt="">
+                      <p class="pacifico-regular font-semibold">Add your favorite meals and start your<br> healthy journey with Foodify!</p>
                   </ul>
                </div>
 
@@ -200,7 +204,8 @@
               </div>
              
               <div class="mt-6">
-                <a (click)="switchOnCart()" [routerLink]="['Payment']"class="flex items-center justify-center rounded-md border border-transparent mainColor pr-6 py-3 text-base font-medium text-white shadow-xs ">Checkout</a>
+                <a *ngIf="_Cartservices.Statuscart().length > 0" (click)="switchOnCart()" [routerLink]="['Payment']"class="flex items-center justify-center rounded-md border border-transparent mainColor pr-6 py-3 text-base font-medium text-white shadow-xs ">Checkout</a>
+                <a *ngIf="_Cartservices.Statuscart().length == 0" (click)="switchOnCart()" [routerLink]="['categories']"class="flex items-center justify-center rounded-md border border-transparent mainColor pr-6 py-3 text-base font-medium text-white shadow-xs ">Explore Categories</a>
               </div>
               <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
                 <p>
